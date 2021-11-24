@@ -1,0 +1,19 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<p class="block"> На этой страничке реализована интеграция стороннего сервиса через api на данный сайт.
+    Поскольку я люблю числа, на моем сайте есть отдельный раздел, посвященный им.
+    С помощью одного апи получаем информацию о числе, с помощью другого апи переводим ее на русский язык.
+<form action="/num" method="post" class="form-contact">
+<p><label>Введите число: </label> <input type="number" name="number" value="" required />
+<p><b>Какая информация интересует?</b></p>
+    <p><input name="numtype" type="radio" value="math" checked> Математический факт </p>
+    <p><input name="numtype" type="radio" value="trivia"> Забавный факт</p>
+<p><input type="submit" value="Узнать интересный факт" />
+</form>
+    {% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+{% endblock %}

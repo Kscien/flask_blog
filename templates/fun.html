@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+<ol>
+ <li><a href="{{ url_for('num') }}">Числа</a></li>
+ <li><a href="{{ url_for('facts') }}">Забавные факты</a></li>
+</ol>
+{% endblock %}
